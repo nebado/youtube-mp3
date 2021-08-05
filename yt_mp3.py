@@ -38,10 +38,11 @@ def read_file(videos):
   return videos
 
 if __name__ == "__main__":
+  if (len(sys.argv) < 2):
+    exit("Enter url search query for download")
 
-  # Search query with filter type video and duration over 20 minutes
-  url = "https://www.youtube.com/results?search_query=programming+music&sp=EgQQARgC"
-
+  url = sys.argv[1]
+  
   ydl_opts = {
     'format': 'bestaudio/best',
     'postprocessors': [{

@@ -13,6 +13,6 @@ Used the library youtube-dl.
 
 ```console
 
-$ python3 yt_mp3.py
+$ python3 yt_mp3.py https://www.youtube.com/results?search_query=programming+music&sp=EgQQARgC
 
 ```
