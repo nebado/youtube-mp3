@@ -4,7 +4,7 @@ import os, sys, re, requests, youtube_dl
 
 def scrape_video(url):
   path_list = 'list-video.txt'
-  
+
   if os.path.exists(path_list) and os.path.getsize(path_list) > 0:
     return read_file(path_list)
 
@@ -42,6 +42,7 @@ if __name__ == "__main__":
     exit("Enter url search query for download")
 
   url = sys.argv[1]
+  save_path = '/'.join(os.getcwd().split('/')[:3]) + '/Music'
   
   ydl_opts = {
     'format': 'bestaudio/best',
@@ -50,6 +51,7 @@ if __name__ == "__main__":
       'preferredcodec': 'mp3',
       'preferredquality': '192',
     }],
+    'outtmpl':save_path + '/%(title)s.%(ext)s',
   }
 
   urls = scrape_video(url)
@@ -67,4 +69,3 @@ if __name__ == "__main__":
       full_url = "https://youtube.com/" + "".join(url)
       ydl.download(full_url.split())
       acc += 1
-
